@@ -3,7 +3,8 @@
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
 
-  :dependencies [[metosin/compojure-api "1.1.8"]
+  :dependencies [[org.slf4j/slf4j-simple "1.7.21"]
+                 [metosin/compojure-api "1.1.8"]
                  [cljs-ajax "0.5.8"]
                  [secretary "1.2.3"]
                  [reagent-utils "0.2.0"]
@@ -29,9 +30,8 @@
                  [buddy "1.1.0"]
                  [com.novemberain/monger "3.1.0"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [luminus-immutant "0.2.2"]
-                 [org.slf4j/slf4j-nop "1.7.12"]]
-
+                 [luminus-immutant "0.2.2"
+                  :exclusions [ch.qos.logback/logback-classic]]]
 
   :min-lein-version "2.0.0"
 
