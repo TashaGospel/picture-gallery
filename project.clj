@@ -27,9 +27,11 @@
                  [org.clojure/tools.cli "0.3.5"]
                  [luminus-nrepl "0.1.4"]
                  [buddy "1.1.0"]
-                 [com.novemberain/monger "3.0.0-rc2"]
+                 [com.novemberain/monger "3.1.0"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [luminus-immutant "0.2.2"]]
+                 [luminus-immutant "0.2.2"]
+                 [org.slf4j/slf4j-nop "1.7.12"]]
+
 
   :min-lein-version "2.0.0"
 
@@ -117,8 +119,8 @@
                      {:output-to "target/test.js"
                       :main "picture-gallery.doo-runner"
                       :optimizations :whitespace
-                      :pretty-print true}}}}
+                      :pretty-print true}}}}}
                   
-                  }
+
    :profiles/dev {}
    :profiles/test {}})
