@@ -11,5 +11,5 @@ profiles.clj
 .nrepl-port
 /log
 *.iml
-.idea/
+.idea
 *.log

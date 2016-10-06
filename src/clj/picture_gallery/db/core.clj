@@ -6,7 +6,7 @@
             [picture-gallery.config :refer [env]]))
 
 (defstate db*
-  :start (-> env :MONGODB_URI mg/connect-via-uri)
+  :start (-> env :MONGODB-URI mg/connect-via-uri)
   :stop (-> db* :conn mg/disconnect))
 
 (defstate db

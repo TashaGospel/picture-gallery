@@ -31,14 +31,14 @@
       <file leaf-file-name="home.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/routes/home.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="405">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.clj" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/routes/services.clj">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -48,10 +48,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="this" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/this">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
+            <state relative-caret-position="-3091">
               <caret line="0" column="8531" selection-start-line="0" selection-start-column="8526" selection-end-line="0" selection-end-column="8531" />
               <folding />
             </state>
@@ -71,8 +81,38 @@
       <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="95" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/db/core.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profiles.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/profiles.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="5" column="103" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/config.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -86,21 +126,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/profiles.clj" />
-        <option value="$PROJECT_DIR$/src/clj/picture_gallery/db/core.clj" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/env/dev/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/env/dev/resources/simplelogger.properties" />
         <option value="$PROJECT_DIR$/log4j.properties" />
         <option value="$PROJECT_DIR$/project.clj" />
         <option value="$PROJECT_DIR$/src/clj/picture_gallery/routes/home.clj" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/clj/picture_gallery/db/core.clj" />
+        <option value="$PROJECT_DIR$/profiles.clj" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="24" />
-    <option name="width" value="1920" />
-    <option name="height" value="1056" />
+    <option name="width" value="1916" />
+    <option name="height" value="865" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -145,6 +185,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="picture-gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="picture-gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="picture-gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uberjar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="picture-gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="picture-gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,8 +316,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
-  <component name="ReplState" timestamp="1475730848442">{:repl-history {:ide [], :local [], :remote [&quot;(:MONGODB_URI env)&quot; &quot;(mg/connect-via-uri (:MONGODB_URI env))&quot; &quot;(:db db*)&quot; &quot;a&quot; &quot;(mg/connect-via-uri \&quot;mongodb://heroku_ph4fxpmg:8m4qsuns71nsoh1c60f2lhh7fg@ds017636.mlab.com:17636/heroku_ph4fxpmg\&quot;)&quot; &quot;(:db (mg/connect-via-uri \&quot;mongodb://heroku_ph4fxpmg:8m4qsuns71nsoh1c60f2lhh7fg@ds017636.mlab.com:17636/heroku_ph4fxpmg\&quot;))&quot; &quot;env&quot; &quot;(clojure.tools.logging/enabled? :debug)&quot; &quot;(clojure.tools.logging/enabled? :info)&quot; &quot;(clojure.java.io/resource \&quot;log4j.properties\&quot;)&quot; &quot;(str (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(File. (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(java.io.File. (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(slurp (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(.setLogLevel db 1)&quot; &quot;doubles&quot; &quot;(create-user {:first_name \&quot;Welp\n\&quot;})&quot; &quot;db&quot; &quot;(def db (:db db*))&quot; &quot;(create-user {:first_name \&quot;Welp\&quot;})&quot; &quot;(create-user {:_id 123 :what \&quot;wow\&quot;})&quot; &quot;(-&gt; env :MONGODB_URI mg/connect-via-uri)&quot; &quot;(-&gt; *1 :conn mg/disconnect)&quot; &quot;db*&quot; &quot;(println \&quot;what\&quot;)&quot; &quot;(.println System/out \&quot;wqh\&quot;)&quot; &quot;(create-user {:_id \&quot;wow\&quot;})&quot; &quot;(import org.apache.log4j.Loger)&quot; &quot;(import org.apache.log4j.Logger)&quot;]}}</component>
+  <component name="ReplState" timestamp="1475731879989">{:repl-history {:ide [], :local [], :remote [&quot;(:MONGODB_URI env)&quot; &quot;(mg/connect-via-uri (:MONGODB_URI env))&quot; &quot;(:db db*)&quot; &quot;a&quot; &quot;(mg/connect-via-uri \&quot;mongodb://heroku_ph4fxpmg:8m4qsuns71nsoh1c60f2lhh7fg@ds017636.mlab.com:17636/heroku_ph4fxpmg\&quot;)&quot; &quot;(:db (mg/connect-via-uri \&quot;mongodb://heroku_ph4fxpmg:8m4qsuns71nsoh1c60f2lhh7fg@ds017636.mlab.com:17636/heroku_ph4fxpmg\&quot;))&quot; &quot;env&quot; &quot;(clojure.tools.logging/enabled? :debug)&quot; &quot;(clojure.tools.logging/enabled? :info)&quot; &quot;(clojure.java.io/resource \&quot;log4j.properties\&quot;)&quot; &quot;(str (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(File. (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(java.io.File. (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(slurp (clojure.java.io/resource \&quot;log4j.properties\&quot;))&quot; &quot;(.setLogLevel db 1)&quot; &quot;doubles&quot; &quot;(create-user {:first_name \&quot;Welp\n\&quot;})&quot; &quot;db&quot; &quot;(def db (:db db*))&quot; &quot;(create-user {:first_name \&quot;Welp\&quot;})&quot; &quot;(create-user {:_id 123 :what \&quot;wow\&quot;})&quot; &quot;(-&gt; env :MONGODB_URI mg/connect-via-uri)&quot; &quot;(-&gt; *1 :conn mg/disconnect)&quot; &quot;db*&quot; &quot;(println \&quot;what\&quot;)&quot; &quot;(.println System/out \&quot;wqh\&quot;)&quot; &quot;(create-user {:_id \&quot;wow\&quot;})&quot; &quot;(import org.apache.log4j.Loger)&quot; &quot;(import org.apache.log4j.Logger)&quot;]}}</component>
   <component name="RunManager" selected="Clojure REPL.REPL">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -369,20 +442,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1916" height="865" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31510416" sideWeight="0.5051852" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.315762" sideWeight="0.5051852" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.4948148" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124739036" sideWeight="0.4948148" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -451,14 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/config.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/clj/picture_gallery/test/handler.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -471,22 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-918">
           <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profiles.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="2" column="112" selection-start-line="2" selection-start-column="112" selection-end-line="2" selection-end-column="112" />
           <folding />
         </state>
       </provider>
@@ -561,14 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/db/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="678">
@@ -593,14 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -611,7 +644,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/this">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="-3091">
           <caret line="0" column="8531" selection-start-line="0" selection-start-column="8526" selection-end-line="0" selection-end-column="8531" />
           <folding />
         </state>
@@ -619,8 +652,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/routes/home.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="405">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/config.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="5" column="103" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
           <folding />
         </state>
       </provider>
@@ -629,6 +686,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clj/picture_gallery/db/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
           <folding />
         </state>
       </provider>
