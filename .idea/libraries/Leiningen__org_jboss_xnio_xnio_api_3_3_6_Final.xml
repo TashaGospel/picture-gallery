@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.jboss.xnio/xnio-api:3.3.6.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/org/jboss/xnio/xnio-api/3.3.6.Final/xnio-api-3.3.6.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

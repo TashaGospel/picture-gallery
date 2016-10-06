@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.github.fge/json-schema-validator:2.2.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/com/github/fge/json-schema-validator/2.2.6/json-schema-validator-2.2.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
