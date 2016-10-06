@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.webjars.bower/tether:1.3.7">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/webjars/bower/tether/1.3.7/tether-1.3.7.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

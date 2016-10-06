@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.immutant/web:2.1.5">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/immutant/web/2.1.5/web-2.1.5.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

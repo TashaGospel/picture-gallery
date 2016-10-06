@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.immutant/core:2.1.5">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.m2/repository/org/immutant/core/2.1.5/core-2.1.5.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
