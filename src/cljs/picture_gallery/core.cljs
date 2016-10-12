@@ -6,7 +6,10 @@
             [goog.history.EventType :as HistoryEventType]
             [markdown.core :refer [md->html]]
             [picture-gallery.ajax :refer [load-interceptors!]]
-            [ajax.core :refer [GET POST]])
+            [picture-gallery.components.common :as c]
+            [picture-gallery.components.registration :as reg]
+            [picture-gallery.components.login :as l]
+            [ajax.core :as ajax])
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]
@@ -16,18 +19,38 @@
     {:href uri
      :on-click #(reset! collapsed? true)} title]])
 
+(defn user-menu []
+  (if-let [id (session/get :identity)]
+    [:ul.nav.navbar-nav.pull-xs-right
+     [:li.nav-item
+      [:a.dropdown-item.btn
+       {:on-click #(ajax/POST
+                    "/logout"
+                    {:handler (fn [] (session/remove! :identity))})}
+       [:i.fa.fa-user] " " id " | sign out"]]]
+    [:ul.nav.navbar-nav.pull-xs-right
+     [:li.nav-item [l/login-button]]
+     [:li.nav-item [reg/registration-button]]]))
+
+
 (defn navbar []
   (let [collapsed? (r/atom true)]
     (fn []
       [:nav.navbar.navbar-light.bg-faded
        [:button.navbar-toggler.hidden-sm-up
-        {:on-click #(swap! collapsed? not)} "☰"]
+        {:on-click #(swap! collapsed? not)} " ☰ "]
        [:div.collapse.navbar-toggleable-xs
         (when-not @collapsed? {:class "in"})
         [:a.navbar-brand {:href "#/"} "picture-gallery"]
         [:ul.nav.navbar-nav
          [nav-link "#/" "Home" :home collapsed?]
-         [nav-link "#/about" "About" :about collapsed?]]]])))
+         [nav-link "#/about" "About" :about collapsed?]]]
+       [user-menu]])))
+
+
+(defn modal []
+  (when-let [session-modal (session/get :modal)]
+    [session-modal]))
 
 (defn about-page []
   [:div.container
@@ -55,7 +78,9 @@
    :about #'about-page})
 
 (defn page []
-  [(pages (session/get :page))])
+  [:div
+   [modal]
+   [(pages (session/get :page))]])
 
 ;; -------------------------
 ;; Routes
@@ -80,15 +105,12 @@
 
 ;; -------------------------
 ;; Initialize app
-(defn fetch-docs! []
-  (GET (str js/context "/docs") {:handler #(session/put! :docs %)}))
-
 (defn mount-components []
   (r/render [#'navbar] (.getElementById js/document "navbar"))
   (r/render [#'page] (.getElementById js/document "app")))
 
 (defn init! []
   (load-interceptors!)
-  (fetch-docs!)
   (hook-browser-navigation!)
+  (session/put! :identity js/identity)
   (mount-components))

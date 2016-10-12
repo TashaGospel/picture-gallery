@@ -3,8 +3,7 @@
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
 
-  :dependencies [[org.slf4j/slf4j-simple "1.7.21"]
-                 [metosin/compojure-api "1.1.8"]
+  :dependencies [[metosin/compojure-api "1.1.8"]
                  [cljs-ajax "0.5.8"]
                  [secretary "1.2.3"]
                  [reagent-utils "0.2.0"]
@@ -16,6 +15,7 @@
                  [ring-middleware-format "0.7.0"]
                  [metosin/ring-http-response "0.8.0"]
                  [bouncer "1.0.0"]
+                 [prismatic/schema "1.1.3"]
                  [org.webjars/bootstrap "4.0.0-alpha.3"]
                  [org.webjars/font-awesome "4.6.3"]
                  [org.webjars.bower/tether "1.3.7"]
@@ -30,12 +30,15 @@
                  [buddy "1.1.0"]
                  [com.novemberain/monger "3.1.0"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [luminus-immutant "0.2.2"
-                  :exclusions [ch.qos.logback/logback-classic]]]
+                 [luminus-immutant "0.2.2"]]
+                  ;:exclusions [ch.qos.logback/logback-classic]]]
+                 ;[org.slf4j/slf4j-simple "1.7.21"]]
 
   :min-lein-version "2.0.0"
 
   :jvm-opts ["-server" "-Dconf=.lein-env"]
+             ;"-Dorg.slf4j.simpleLogger.log.org.mongodb.driver=warn"]
+             ;"-Dorg.slf4j.simpleLogger.defaultLogLevel=debug"]
   :source-paths ["src/clj" "src/cljc"]
   :resource-paths ["resources" "target/cljsbuild"]
   :target-path "target/%s/"
@@ -50,8 +53,8 @@
   {:http-server-root "public"
    :nrepl-port 7002
    :css-dirs ["resources/public/css"]
-   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-  
+   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]
+   :open-file-command "open-in-intellij"}
 
   :profiles
   {:uberjar {:omit-source true
@@ -62,7 +65,7 @@
                {:source-paths ["src/cljc" "src/cljs" "env/prod/cljs"]
                 :compiler
                 {:output-to "target/cljsbuild/public/js/app.js"
-                 :externs ["react/externs/react.js"]
+                 ;:externs ["react/externs/react.js"]
                  :optimizations :advanced
                  :pretty-print false
                  :closure-warnings
@@ -101,9 +104,7 @@
                       :source-map true
                       :optimizations :none
                       :pretty-print true}}}}
-                  
-                  
-                  
+
                   :doo {:build "test"}
                   :source-paths ["env/dev/clj" "test/clj"]
                   :resource-paths ["env/dev/resources"]

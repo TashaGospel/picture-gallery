@@ -12,14 +12,22 @@
 (defstate db
   :start (:db db*))
 
-(defn create-user [user]
-  (mc/insert db "users" user))
+(defn get-user [query]
+  (mc/find-one-as-map db "users" query))
 
-(defn update-user [id first-name last-name email]
+(defn get-all-users []
+  (mc/find-maps db "users" {}))
+
+(defn create-user! [user]
+  (if (get-user (select-keys user [:id]))
+    (throw (ex-info "Duplicate ID" {:desc "User ID already exists"}))
+    (mc/insert db "users" user)))
+
+(defn delete-user! [query]
+  (mc/remove db "users" query))
+
+(defn update-user! [id first-name last-name email]
   (mc/update db "users" {:_id id}
              {$set {:first_name first-name
                     :last_name  last-name
                     :email      email}}))
-
-(defn get-user [id]
-  (mc/find-one-as-map db "users" {:_id id}))
