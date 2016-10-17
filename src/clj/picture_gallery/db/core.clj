@@ -3,7 +3,8 @@
             [monger.collection :as mc]
             [monger.operators :refer :all]
             [mount.core :refer [defstate]]
-            [picture-gallery.config :refer [env]]))
+            [picture-gallery.config :refer [env]]
+            [monger.gridfs :as gfs :refer [store-file make-input-file filename content-type metadata]]))
 
 (defstate db*
   :start (-> env :mongodb-uri mg/connect-via-uri)
@@ -11,6 +12,9 @@
 
 (defstate db
   :start (:db db*))
+
+(defstate fs
+  :start (mg/get-gridfs (:conn db*) (re-find #"\w+$" (:mongodb-uri env))))
 
 (defn get-user [query]
   (mc/find-one-as-map db "users" query))
@@ -26,8 +30,10 @@
 (defn delete-user! [query]
   (mc/remove db "users" query))
 
-(defn update-user! [id first-name last-name email]
-  (mc/update db "users" {:_id id}
-             {$set {:first_name first-name
-                    :last_name  last-name
-                    :email      email}}))
+(defn save-file! [file]
+  (store-file (make-input-file fs (:data file))
+    (metadata (dissoc file :data))))
+
+
+
+

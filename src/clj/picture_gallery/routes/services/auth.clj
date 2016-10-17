@@ -33,12 +33,18 @@
     (hashers/check pass (:pass user))))
 
 (defn login! [{:keys [session]} user]
-  (if (authenticate user)
-    (-> {:result :ok}
-        response/ok
-        (assoc :session (assoc session :identity (:id user))))
-    (response/unauthorized {:result :unauthorized
-                            :message "login failure"})))
+  (try
+    (if (authenticate user)
+      (-> {:result :ok}
+          response/ok
+          (assoc :session (assoc session :identity (:id user))))
+      (response/unauthorized {:result  :unauthorized
+                              :message "login failure"}))
+    (catch Exception e
+      (do (log/error e)
+          (response/internal-server-error
+            {:result  :error
+             :message "Server error occurred while logging in"})))))
 
 (defn logout! []
   (-> {:result :ok}
