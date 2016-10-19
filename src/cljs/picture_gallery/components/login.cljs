@@ -33,6 +33,8 @@
       [c/modal
        [:div "Picture Gallery Login"]
        [:div
+        {:on-key-down (fn [e] (if (= 13 (.-keyCode e))
+                                (login! fields errors)))}
         [:div.well.well-sm
          [:strong " ✱ required field"]]
         [c/text-input "name" :id "your user ID" fields]

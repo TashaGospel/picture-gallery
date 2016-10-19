@@ -16,7 +16,8 @@
    {:type        type
     :placeholder placeholder
     :value       (id @fields)
-    :on-change   #(swap! fields assoc id (-> % .-target .-value))}])
+    :on-change   #(swap! fields assoc id (-> % .-target .-value))
+    :auto-focus (not= type :password)}])
 
 (defn form-input [type label id placeholder fields optional?]
   [:div.form-group
