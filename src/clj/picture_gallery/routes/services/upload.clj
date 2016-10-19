@@ -3,10 +3,9 @@
             [ring.util.http-response :refer :all]
             [clojure.tools.logging :as log])
   (:import [java.awt.image AffineTransformOp BufferedImage]
-           [java.io ByteArrayOutputStream FileInputStream]
+           [java.io ByteArrayOutputStream]
            java.awt.geom.AffineTransform
-           javax.imageio.ImageIO
-           java.net.URLEncoder))
+           javax.imageio.ImageIO))
 
 (def thumb-size 150)
 (def thumb-prefix "thumb_")

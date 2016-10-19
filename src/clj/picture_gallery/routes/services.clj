@@ -4,7 +4,8 @@
             [compojure.api.upload :refer :all]
             [schema.core :as s]
             [picture-gallery.routes.services.auth :as auth]
-            [picture-gallery.routes.services.upload :as upload]))
+            [picture-gallery.routes.services.upload :as upload]
+            [picture-gallery.routes.services.gallery :as gallery]))
 
 (s/defschema UserRegistration
   {:id           s/Str
@@ -14,6 +15,10 @@
 (s/defschema UserLogin
   {:id   s/Str
    :pass s/Str})
+
+(s/defschema Gallery
+  {:name s/Str
+   :owner s/Str})
 
 (s/defschema Result
   {:result                   s/Keyword
@@ -41,7 +46,18 @@
   (POST "/logout" []
     :summary "remove user session"
     :return Result
-    (auth/logout!)))
+    (auth/logout!))
+
+  (GET "/gallery/:owner/:name" []
+    :summary "display user image"
+    :path-params [name :- String]
+    (gallery/get-image name))
+
+  (GET "/list-thumbnails/:owner" []
+    :path-params [owner :- String]
+    :summary "list thumbnails for images in the gallery"
+    :return [Gallery]
+    (gallery/list-thumbnails owner)))
 
 (defapi restricted-service-routes
   {:swagger {:ui   "/swagger-ui-private"

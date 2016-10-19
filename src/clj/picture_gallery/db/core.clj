@@ -1,10 +1,12 @@
 (ns picture-gallery.db.core
   (:require [monger.core :as mg]
             [monger.collection :as mc]
+            [monger.conversion :refer [from-db-object]]
             [monger.operators :refer :all]
             [mount.core :refer [defstate]]
             [picture-gallery.config :refer [env]]
-            [monger.gridfs :as gfs :refer [store-file make-input-file filename content-type metadata]]))
+            [monger.gridfs :as gfs :refer [store-file make-input-file filename content-type metadata]])
+  (:import (com.mongodb.gridfs GridFSDBFile)))
 
 (defstate db*
   :start (-> env :mongodb-uri mg/connect-via-uri)
@@ -30,10 +32,19 @@
 (defn delete-user! [query]
   (mc/remove db "users" query))
 
+(defn get-image [filename]
+  (when-let [gfsfile (gfs/find-one fs {:metadata.name filename})]
+    (assoc (:metadata (from-db-object gfsfile true))
+      :data (.getInputStream ^GridFSDBFile gfsfile))))
+
 (defn save-file! [file]
-  (store-file (make-input-file fs (:data file))
-    (metadata (dissoc file :data))))
+  (if (gfs/find-one fs {:metadata.name (:name file)})
+    (throw (ex-info "Duplicate file name" {:desc "File name already exists"}))
+    (store-file (make-input-file fs (:data file))
+      (metadata (dissoc file :data)))))
 
-
-
+(defn list-thumbnails [owner]
+  (map #(select-keys (:metadata %) [:name :owner])
+       (gfs/find-maps fs {:metadata.owner owner
+                          :metadata.name  {$regex "^thumb_"}})))
 

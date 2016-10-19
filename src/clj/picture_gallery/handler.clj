@@ -18,7 +18,7 @@
         (wrap-routes middleware/wrap-csrf)
         (wrap-routes middleware/wrap-formats))
     #'service-routes
-    (wrap-routes #'restricted-service-routes middleware/wrap-auth)
+    (wrap-routes #'restricted-service-routes middleware/wrap-restricted)
     (route/not-found
       (:body
         (error-page {:status 404
