@@ -48,3 +48,14 @@
        (gfs/find-maps fs {:metadata.owner owner
                           :metadata.name  {$regex "^thumb_"}})))
 
+(defn- get-one-thumbnail [owner]
+  (-> fs
+      (gfs/find-one-as-map {:metadata.owner owner
+                            :metadata.name  {$regex "^thumb_"}})
+      :metadata
+      (select-keys [:name :owner])))
+
+(defn select-gallery-previews []
+  (let [users (get-all-users)]
+    (filter not-empty (map #(get-one-thumbnail (:id %)) users))))
+

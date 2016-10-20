@@ -3,23 +3,23 @@
             [ring.util.http-response :refer :all]
             [clojure.tools.logging :as log])
   (:import [java.awt.image AffineTransformOp BufferedImage]
-           [java.io ByteArrayOutputStream]
+           [java.io ByteArrayOutputStream File]
            java.awt.geom.AffineTransform
            javax.imageio.ImageIO))
 
 (def thumb-size 150)
 (def thumb-prefix "thumb_")
 
-(defn scale [img ratio width height]
+(defn scale [^BufferedImage img ratio width height]
   (let [scale (AffineTransform/getScaleInstance
                 (double ratio) (double ratio))
         transform-op (AffineTransformOp.
                        scale AffineTransformOp/TYPE_BILINEAR)]
-    (.filter transform-op ^BufferedImage img
+    (.filter transform-op img
              (BufferedImage. width height (.getType img)))))
 
 (defn scale-image [file thumb-size]
-  (let [img (ImageIO/read file)
+  (let [^BufferedImage img (ImageIO/read ^File file)
         img-width (.getWidth img)
         img-height (.getHeight img)
         ratio (/ thumb-size img-height)]
@@ -32,7 +32,7 @@
 
 (defn save-image! [user {:keys [tempfile filename content-type]}]
   (try
-    (let [db-file-name (str user (.replaceAll filename "[^a-zA-Z0-9-_\\.]" ""))]
+    (let [db-file-name (str user (.replaceAll ^String filename "[^a-zA-Z0-9-_\\.]" ""))]
       (db/save-file! {:owner user
                       :type  content-type
                       :name  db-file-name
