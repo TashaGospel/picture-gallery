@@ -59,3 +59,8 @@
   (let [users (get-all-users)]
     (filter not-empty (map #(get-one-thumbnail (:id %)) users))))
 
+(defn delete-file! [owner name]
+  (gfs/remove fs {:metadata.owner owner
+                  :metadata.name name}))
+
+

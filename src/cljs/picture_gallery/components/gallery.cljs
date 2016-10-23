@@ -39,17 +39,48 @@
     [:div
      [:img.image.panel.panel-default
       {:on-click #(session/remove! :modal)
-       :src link}]
+       :src      link}]
      [:div.modal-backdrop.fade.in]]))
 
+(defn delete-image! [name]
+  (ajax/DELETE (str "/delete-image/" (s/replace name #"thumb_" ""))
+               {:handler #(do
+                           (session/update!
+                             :thumbnail-links
+                             (fn [links]
+                               (remove
+                                 (fn [link] (= name (:name link)))
+                                 links)))
+                           (session/remove! :modal))}))
+
+(defn delete-image-button [owner name]
+  (session/put!
+    :modal
+    (fn []
+      [c/modal
+       [:div "Remove " name "?"]
+       [:div [:img {:src (str "/gallery/" owner "/" name)}]]
+       [:div
+        [:button.btn.btn-primary
+         {:on-click #(delete-image! name)}
+         "Delete"]
+        [:button.btn.btn-danger
+         {:on-click #(session/remove! :modal)}
+         "Cancel"]]])))
+
 (defn thumb-link [{:keys [owner name]}]
-  [:div.col-sm-4>img
-   {:src      (str js/context "/gallery/" owner "/" name)
-    :on-click #(session/put!
-                :modal
-                (image-modal
-                  (str js/context "/gallery/" owner "/"
-                       (s/replace name #"thumb_" ""))))}])
+  [:div.col-sm-4
+   [:img
+    {:src      (str js/context "/gallery/" owner "/" name)
+     :on-click #(session/put!
+                 :modal
+                 (image-modal
+                   (str js/context "/gallery/" owner "/"
+                        (s/replace name #"thumb_" ""))))}]
+   (when (= (session/get :identity) owner)
+     [:div.text-xs-center>div.btn.btn-danger
+      {:on-click #(delete-image-button owner name)}
+      [:i.fa.fa-times]])])
 
 (defn gallery [links]
   [:div.text-xs-center
@@ -72,3 +103,4 @@
          [:div.row>div.col-md-12
           [pager (count thumbnail-links) page]
           [gallery (thumbnail-links @page)]])])))
+

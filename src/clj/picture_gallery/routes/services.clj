@@ -17,7 +17,7 @@
    :pass s/Str})
 
 (s/defschema Gallery
-  {:name s/Str
+  {:name  s/Str
    :owner s/Str})
 
 (s/defschema Result
@@ -71,9 +71,16 @@
                            :title       "Picture Gallery API"
                            :description "Private Services"}}}}
 
+  (DELETE "/delete-image/:image-name" req
+    :return Result
+    :path-params [image-name :- s/Str]
+    :summary "delete the specified file from the database"
+    (gallery/delete-image! (:identity req) image-name))
+
   (POST "/upload" req
     :multipart-params [file :- TempFileUpload]
     :middleware [wrap-multipart-params]
     :summary "upload an image"
     :return Result
     (upload/save-image! (:identity req) file)))
+

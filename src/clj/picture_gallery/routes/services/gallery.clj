@@ -16,3 +16,8 @@
 
 (defn list-galleries []
   (ok (db/select-gallery-previews)))
+
+(defn delete-image! [owner image-name]
+  (db/delete-file! owner image-name)
+  (db/delete-file! owner (str "thumb_" image-name))
+  (ok {:result :ok}))
