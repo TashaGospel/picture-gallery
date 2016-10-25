@@ -1,5 +1,5 @@
+  (:require [reagent.core :as r])
 (ns picture-gallery.core
-  (:require [reagent.core :as r]
             [reagent.session :as session]
             [secretary.core :as secretary :include-macros true]
             [goog.events :as events]
@@ -11,7 +11,7 @@
             [picture-gallery.components.login :as l]
             [picture-gallery.components.upload :as u]
             [picture-gallery.components.gallery :as g]
-            [ajax.core :as ajax])
+            [ajax.core :as ajax]
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]
@@ -21,20 +21,37 @@
     {:href     uri
      :on-click #(reset! collapsed? true)} title]])
 
+(defn account-actions [id]
+  (let [expanded? (r/atom false)]
+    (fn []
+      [:div.dropdown
+       {:class    (when @expanded? "open")
+        :on-click #(swap! expanded? not)}
+       [:button.btn.btn-secondary.dropdown-toggle
+        {:type :button}
+        [:span.glyphicon.glyphicon-user] " " id [:span.caret]]
+       [:div.dropdown-menu.user-actions
+        [:a.dropdown-item.btn
+         {:on-click
+          #(session/put! :modal reg/delete-account-modal)}
+         "delete account"]
+        [:a.dropdown-item.btn
+         {:on-click
+          #(ajax/POST
+            "/logout"
+            {:handler (fn [] (session/remove! :identity))})}
+         "sign out"]]])))
+
 (defn user-menu []
   (if-let [id (session/get :identity)]
     [:ul.nav.navbar-nav.pull-xs-right
-     [:li.nav-item [u/upload-button]]
      [:li.nav-item
-      [:a.dropdown-item.btn
-       {:on-click #(ajax/POST
-                    "/logout"
-                    {:handler (fn [] (session/remove! :identity))})}
-       [:i.fa.fa-user] " " id " | sign out"]]]
+      [u/upload-button]]
+     [:li.nav-item
+      [account-actions id]]]
     [:ul.nav.navbar-nav.pull-xs-right
      [:li.nav-item [l/login-button]]
      [:li.nav-item [reg/registration-button]]]))
-
 
 (defn navbar []
   (let [collapsed? (r/atom true)]

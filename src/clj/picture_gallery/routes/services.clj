@@ -82,5 +82,8 @@
     :middleware [wrap-multipart-params]
     :summary "upload an image"
     :return Result
-    (upload/save-image! (:identity req) file)))
+    (upload/save-image! (:identity req) file))
+
+  (DELETE "/delete-account" req
+    (auth/delete-account! (:identity req))))
 

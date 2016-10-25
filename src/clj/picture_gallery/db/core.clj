@@ -29,8 +29,8 @@
     (throw (ex-info "Duplicate ID" {:desc "User ID already exists"}))
     (mc/insert db "users" user)))
 
-(defn delete-user! [query]
-  (mc/remove db "users" query))
+(defn delete-user! [id]
+  (mc/remove db "users" {:id id}))
 
 (defn get-image [filename]
   (when-let [gfsfile (gfs/find-one fs {:metadata.name filename})]
@@ -63,4 +63,9 @@
   (gfs/remove fs {:metadata.owner owner
                   :metadata.name name}))
 
+(defn delete-user-images! [owner]
+  (gfs/remove fs {:metadata.owner owner}))
 
+(defn delete-account! [id]
+  (delete-user! id)
+  (delete-user-images! id))

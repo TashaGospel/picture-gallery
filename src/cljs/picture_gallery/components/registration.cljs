@@ -40,7 +40,27 @@
          {:on-click #(session/remove! :modal)}
          "Cancel"]]])))
 
+(defn delete-account! []
+  (ajax/DELETE "/delete-account"
+               {:handler #(do
+                           (session/remove! :identity)
+                           (session/put! :page :home))}))
+
 (defn registration-button []
   [:a.btn
    {:on-click #(session/put! :modal registration-form)}
    "Register"])
+
+(defn delete-account-modal []
+  [c/modal
+   [:div.alert.alert-danger "Delete Account!"]
+   [:P "Are you sure you wish to delete the account and associated gallery?"]
+   [:div
+    [:button.btn.btn-primary
+     {:on-click (fn []
+                  (delete-account!)
+                  (session/remove! :modal))}
+     "Delete"]
+    [:button.btn.btn-danger
+     {:on-click (fn [] (session/remove! :modal))}
+     "Cancel"]]])

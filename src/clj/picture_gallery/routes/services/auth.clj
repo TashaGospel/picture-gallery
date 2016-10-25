@@ -50,3 +50,9 @@
   (-> {:result :ok}
       response/ok
       (assoc :session nil)))
+
+(defn delete-account! [identity]
+  (db/delete-account! identity)
+  (-> {:result :ok}
+      response/ok
+      (assoc :session nil)))
