@@ -1,5 +1,5 @@
-  (:require [reagent.core :as r])
 (ns picture-gallery.core
+  (:require [reagent.core :as r]
             [reagent.session :as session]
             [secretary.core :as secretary :include-macros true]
             [goog.events :as events]
@@ -11,7 +11,7 @@
             [picture-gallery.components.login :as l]
             [picture-gallery.components.upload :as u]
             [picture-gallery.components.gallery :as g]
-            [ajax.core :as ajax]
+            [ajax.core :as ajax])
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]

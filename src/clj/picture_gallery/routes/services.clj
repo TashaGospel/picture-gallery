@@ -85,5 +85,11 @@
     (upload/save-image! (:identity req) file))
 
   (DELETE "/delete-account" req
-    (auth/delete-account! (:identity req))))
+    (auth/delete-account! (:identity req)))
+
+  (POST "/login" req
+    :return Result
+    :body [user UserLogin]
+    :summary "Log the user in"
+    (auth/login! req user)))
 

@@ -3,7 +3,8 @@
             [reagent.session :as session]
             [ajax.core :as ajax]
             [clojure.string :as s]
-            [picture-gallery.components.common :as c]))
+            [picture-gallery.components.common :as c]
+            [reagent.core :as reagent]))
 
 (defn partition-links [links]
   (when links
@@ -21,6 +22,16 @@
     :class    (when (= i @page) "active")}
    [:span i]])
 
+(defn rgb-str [[r g b] mask]
+  (str "rgba(" r "," g "," b "," mask ")"))
+
+(defn set-background! [style [c1 c2 c3]]
+  (set! (.-background style)
+        (str "linear-gradient("
+             (rgb-str c3 0.8) ","
+             (rgb-str c2 0.9) ","
+             (rgb-str c1 1) ")")))
+
 (defn pager [pages page]
   (when (> pages 1)
     [:div.text-xs-center>ul.pagination.pagination-lg
@@ -34,12 +45,27 @@
        :class    (when (= @page (dec pages)) "disabled")}
       [:span "»"]]]))
 
-(defn image-modal [link]
+(defn image-panel-did-mount [thumb-link]
+  (fn [div]
+    (.getColors
+      (js/AlbumColors. thumb-link)
+      (fn [colors]
+        (-> div reagent/dom-node .-style (set-background! colors))))))
+
+(defn render-image-panel [link]
+  (fn []
+    [:img.image.panel.panel-default
+     {:on-click #(session/remove! :modal)
+      :src      link}]))
+
+(defn image-panel [thumb-link link]
+  (reagent/create-class {:render              (render-image-panel link)
+                         :component-did-mount (image-panel-did-mount thumb-link)}))
+
+(defn image-modal [thumb-link link]
   (fn []
     [:div
-     [:img.image.panel.panel-default
-      {:on-click #(session/remove! :modal)
-       :src      link}]
+     [image-panel thumb-link link]
      [:div.modal-backdrop.fade.in]]))
 
 (defn delete-image! [name]
@@ -75,6 +101,7 @@
      :on-click #(session/put!
                  :modal
                  (image-modal
+                   (str js/context "/gallery/" owner "/" name)
                    (str js/context "/gallery/" owner "/"
                         (s/replace name #"thumb_" ""))))}]
    (when (= (session/get :identity) owner)

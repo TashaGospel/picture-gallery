@@ -65,17 +65,19 @@
                {:source-paths ["src/cljc" "src/cljs" "env/prod/cljs"]
                 :compiler
                 {:output-to "target/cljsbuild/public/js/app.js"
-                 ;:externs ["react/externs/react.js"]
+                 :externs ["resources/public/vendor/js/colors.js"]
+                           ;"react/externs/react.js"]
                  :optimizations :advanced
                  :pretty-print false
                  :closure-warnings
                  {:externs-validation :off :non-standard-jsdoc :off}}}}}
-             
-             
+
+
              :aot :all
              :uberjar-name "picture-gallery.jar"
              :source-paths ["env/prod/clj"]
              :resource-paths ["env/prod/resources"]}
+
 
    :dev           [:project/dev :profiles/dev]
    :test          [:project/dev :project/test :profiles/test]
@@ -121,7 +123,7 @@
                       :main "picture-gallery.doo-runner"
                       :optimizations :whitespace
                       :pretty-print true}}}}}
-                  
+
 
    :profiles/dev {}
    :profiles/test {}})
